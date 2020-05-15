@@ -29,6 +29,9 @@ def blog_post_detail_view(request, slug):
 def blog_post_list_view(request):
     # Fetch last 5 published blogposts only
     queryset = BlogPost.objects.all().published()
+    if request.user.is_authenticated:
+        my_qs = BlogPost.objects.filter(user=request.user)
+        queryset = (queryset | my_qs).distinct()
     print(queryset)
     template_name = 'blog/list.html'
     context = {'object_list': queryset}
