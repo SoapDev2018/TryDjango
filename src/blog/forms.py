@@ -8,15 +8,15 @@ class BlogPostForm(forms.Form):
     slug = forms.SlugField()
     content = forms.CharField(widget=forms.Textarea)
 
-class DateTimeInput(forms.DateTimeInput):
-    input_type = 'datetime-local'
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class BlogPostModelForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ['title', 'slug', 'content', 'published_date']
+        fields = ['title', 'image', 'slug', 'content', 'published_date']
         widgets = {
-            'published_date': DateTimeInput()
+            'published_date': DateInput()
         }
 
     def clean_title(self, *args, **kwargs):

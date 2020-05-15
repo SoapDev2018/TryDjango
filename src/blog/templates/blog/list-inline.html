@@ -1,9 +1,14 @@
-<div class="col-12 col-md-10 mb-4 mx-auto">
+<div class="col-mb4 mb-2">
     {% if blog_post.published_date is None %}
         <div class="card border border-warning text-center">
     {% else %}
         <div class="card text-center">
     {% endif %}
+        {% if blog_post.image %}
+            <a href="{{blog_post.get_absolute_url}}">
+                <img src="{{blog_post.image.url}}" alt="" class="card-img-top">    
+            </a>
+        {% endif %}
             <div class="card-body">
                 {% if blog_post.published_date is None %}
                 <div class="card-header border border-danger mb-1 text-center">
@@ -17,7 +22,7 @@
                     {{blog_post.content|linebreaks|truncatewords:10}}
                 </p>
                 <a href="{{blog_post.get_absolute_url}}" class="btn btn-primary mb-2">Visit Post</a>
-                <div class="card-footer">
+                <div class="card-footer text-left">
                     Date Published: {{blog_post.published_date}}
                 </div>
             </div>

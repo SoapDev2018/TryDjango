@@ -18,6 +18,7 @@ class BlogPostManager(models.Manager):
 
 class BlogPost(models.Model):
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
+    image = models.ImageField(upload_to='image/', blank=True, null=True)
     title = models.CharField(max_length=512)
     content = models.TextField(null=True, blank=True)
     slug = models.SlugField(unique=True)
