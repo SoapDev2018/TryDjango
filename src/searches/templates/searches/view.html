@@ -12,6 +12,11 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 {% endif %}
+                <div class="row row-cols-1 row-cols-md-2">
+                    {% for obj in blog_list %}
+                        {% include 'blog/list-inline.html' with blog_post=obj %}
+                    {% endfor %}
+                </div>
             </p>
         </div>
     </div>
