@@ -4,6 +4,9 @@
     <h1>
         {{ object.title }}
     </h1>
+    {% if object.image %}
+        <img src="{{object.image.url}}" alt="{{object.title}}" class="img-fluid">
+    {% endif %}
     <p>
         {{ object.content|linebreaks }}
     </p>
