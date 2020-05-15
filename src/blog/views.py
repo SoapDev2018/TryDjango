@@ -28,8 +28,7 @@ def blog_post_detail_view(request, slug):
 
 def blog_post_list_view(request):
     # Fetch last 5 published blogposts only
-    queryset = BlogPost.objects.filter(
-        pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+    queryset = BlogPost.objects.all().published()
     print(queryset)
     template_name = 'blog/list.html'
     context = {'object_list': queryset}

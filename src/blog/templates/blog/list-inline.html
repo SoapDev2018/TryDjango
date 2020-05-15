@@ -1,0 +1,16 @@
+<div class="col-12 col-md-6 mb-4 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{blog_post.title}}
+            </h5>
+            <p class="card-text">
+                {{blog_post.content|linebreaks|truncatewords:10}}
+            </p>
+            <a href="{{blog_post.get_absolute_url}}" class="btn btn-primary mb-2">Visit Post</a>
+            <div class="card-footer">
+                Date Published: {{blog_post.published_date}}
+            </div>
+        </div>
+    </div>
+</div>
